@@ -39,9 +39,9 @@ export const fetchSingleNews = newsId => {
     }
 };
 
-export const deleteSuccess = newsId => {
+export const deleteNews = newsId => {
     return async (dispatch) => {
-        axiosApi.delete('/news' + newsId);
+        axiosApi.delete('/news/' + newsId);
         dispatch(deleteNewsSuccess);
     }
 };
