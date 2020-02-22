@@ -32,7 +32,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     }
 
     const result = await newsDB.getConnection().query(
-        'INSERT INTO `equipment` (`title`, `text`, `image`, `datetime`) VALUES ' +
+        'INSERT INTO `news` (`title`, `text`, `image`, `datetime`) VALUES ' +
         '(?, ?, ?, ?)',
         [news.title, news.text, news.image, news.datetime]
     );
@@ -80,12 +80,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req,res) => {
-    const news = await newsDB.getConnection().query('SELECT * FROM `locations` WHERE `id` = ?', req.params.id);
+    const news = await newsDB.getConnection().query('SELECT * FROM `news` WHERE `id` = ?', req.params.id);
 
     if (news.length === 0) {
         res.status(400).send({message: 'No such news!'});
     } else {
-        newsDB.getConnection().query('DELETE FROM `locations` WHERE `id` = ?', req.params.id);
+        newsDB.getConnection().query('DELETE FROM `news` WHERE `id` = ?', req.params.id);
         res.send({message: 'Deleted news successfully'});
     }
 });
