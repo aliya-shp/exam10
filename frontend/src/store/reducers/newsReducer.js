@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const orderNews = (state, newsId) => {
-    return state.news.filter(news => news.id !== news.newsId);
+    return state.news.filter(news => news.id !== newsId);
 };
 
 const newsReducer = (state = initialState, action) => {
