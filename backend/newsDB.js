@@ -1,5 +1,5 @@
-const mysql = require('/promise-mysql');
-const config = require('/config');
+const mysql = require('promise-mysql');
+const config = require('./config');
 
 let connection = null;
 
