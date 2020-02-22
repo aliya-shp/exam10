@@ -1,9 +1,10 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {deleteNews, fetchNews} from "../../store/actions/newsActions";
 import {Link} from "react-router-dom";
 import {Button, Card, CardBody} from "reactstrap";
 import {serverURL} from "../../constants";
+import Newsbar from "../../components/Newsbar/Newsbar";
 
 class News extends Component {
     componentDidMount () {
@@ -13,6 +14,7 @@ class News extends Component {
     render() {
         return (
             <>
+                <Newsbar />
                 <h2>
                     POSTS
                     <Link to="/news/new">

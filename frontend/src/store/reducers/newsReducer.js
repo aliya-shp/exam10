@@ -34,7 +34,7 @@ const newsReducer = (state = initialState, action) => {
       case DELETE_NEWS_SUCCESS:
           return {
               ...state,
-              stories: orderNews(state, action.newsId)
+              news: orderNews(state, action.newsId)
           };
       default:
           return state;

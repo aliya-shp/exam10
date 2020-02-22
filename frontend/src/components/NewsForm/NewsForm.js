@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Button, Col, Form, FormGroup, Input, Label} from "reactstrap";
-import Newsbar from "../Newsbar/Newsbar";
 
 class NewsForm extends Component {
     state = {
@@ -36,7 +35,6 @@ class NewsForm extends Component {
     render() {
         return (
             <>
-                <Newsbar/>
                 <Form onSubmit={this.submitFormHandler}>
                     <FormGroup row>
                         <Label sm={2} for="title">Title</Label>

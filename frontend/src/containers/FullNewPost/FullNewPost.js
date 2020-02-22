@@ -1,8 +1,10 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {addComment, deleteComment, fetchNewsComments} from "../../store/actions/commentsActions";
 import {fetchSingleNews} from "../../store/actions/newsActions";
 import Comments from "../../components/Comments/Comments";
+import Newsbar from "../../components/Newsbar/Newsbar";
+import CommentForm from "../../components/CommentForm/CommentForm";
 
 class FullNewPost extends Component {
     componentDidMount() {
@@ -19,11 +21,12 @@ class FullNewPost extends Component {
         console.log(this.props);
         return (
             <>
+                <Newsbar />
                 <h1>{this.props.news.title}</h1>
                 <p><i>{this.props.news.datetime.toDateString()}</i></p>
                 <div>{this.props.news.text}</div>
                 <Comments deleteComment={this.props.deleteComment} comments={this.props.comments}/>
-                {/*<CommentForm onSubmit={this.createComment}/>*/}
+                <CommentForm onSubmit={this.createComment}/>
             </>
         );
     }
